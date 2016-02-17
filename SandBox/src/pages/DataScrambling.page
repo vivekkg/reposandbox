@@ -1,0 +1,65 @@
+<apex:page controller="DataScramblingController" showHeader="false" sidebar="false" tabStyle="Account" >
+    <apex:form >
+        <apex:actionStatus startText="Please Wait" id="wait">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #E2EDFF; height: 100%;opacity:0.65;width:100%;">
+                    <div class="waitingHolder" style=" top: 50%; width: 50%; background-color: #E2EDFF">
+                        <img class="waitingImage" src="{!$Resource.LoadImage}" style=" background-color: #E2EDFF" title="Please Wait..." />
+                        <span class="waitingDescription">Please Wait...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:pageBlock title="Data Scrambling Tool"  id="PageBlock" >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:outputPanel id="selectObjPnl">
+            
+                <apex:pageBlockSection title="Verify Authorization"  rendered="{!authorizeSection}" collapsible="false" columns="1">
+                        <apex:inputText label="Please Enter Active Novartis Email Address" value="{!emailid}" rendered="{!enterEmail}" />
+                        <apex:inputText label="Please Enter the OTP" value="{!usercode}" rendered="{!enterOTP}" />
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:pageBlockSection columns="2" collapsible="false" title="Select Objects & Fields for Data Scrambling" rendered="{!objSection}" >
+            <apex:outputLabel value="Please Select Objects & Fields for Data Scrambling which has sensitive information "/>
+             </apex:pageBlockSection>
+                         <apex:outputPanel rendered="{!selectValues}" >
+                         <apex:panelGrid columns="3" id="abcd">
+            <apex:selectList id="sel1" value="{!leftselected}" multiselect="true" style="width:400px" size="10">
+                <apex:selectOptions value="{!unselectedvalues}" />
+            </apex:selectList>
+                <apex:panelGroup >
+                    <br/>
+                    <apex:image value="{!$Resource.multiselected}">
+                        <apex:actionSupport event="onclick" action="{!selectclick}" reRender="abcd"/>
+                    </apex:image>
+                    <br/><br/>
+                    <apex:image value="{!$Resource.multiunselected}">
+                        <apex:actionSupport event="onclick" action="{!unselectclick}" reRender="abcd"/>
+                    </apex:image>
+                </apex:panelGroup>
+            <apex:selectList id="sel2" value="{!rightselected}" multiselect="true" style="width:400px" size="10">
+                <apex:selectOptions value="{!SelectedValues}" />
+            </apex:selectList>
+        </apex:panelGrid>                           
+            </apex:outputPanel>         
+              <apex:pageBlockSection columns="1" collapsible="false" title="Confrimation" rendered="{!lastSection}">
+                 <apex:outputPanel >
+                        <apex:outputLabel value="Warning!!! You are attempting to Mask the data on below objects"/><br/>
+                        <apex:outputLabel value="Note: We detected Huge Volume of data in the above objects, It will take considerable amountof time to Mask all the data. "/><br/>
+                        <apex:outputLabel value="Please click on Submit button to proceed with data Scrambling "/>
+                        </apex:outputPanel> 
+                </apex:pageBlockSection>        
+           
+            <apex:pageBlockSection rendered="{!submitMsg}" >
+                <apex:outputLabel value="Processing the Request. Email will be triggered to the Admin on complete of Action"  />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom" >
+                <apex:commandButton value="Next" action="{!onNext}" reRender="PageBlock"  rendered="{!nextbtn}" status="wait" />
+                <apex:commandButton value="Select {!obj} fields" action="{!nextObjFieldSelection}" reRender="PageBlock" rendered="{!selectfieldsbtn}"  status="wait" />
+                <apex:commandButton value="Submit" action="{!onSubmit}" rendered="{!submitbtn}" />
+                 <apex:commandButton value="Close" onclick="window.top.close()"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

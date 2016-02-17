@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Keeps track of data to be compared and packaged</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>External_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the field that is to be used when comparing this data type.</description>
+        <externalId>false</externalId>
+        <label>External Id</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Has_Record_Type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates where this data table has the field RecordTypeId</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates where this data table has the field RecordTypeId, flag to include record types as part of comparison</inlineHelpText>
+        <label>Has Record Type</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Has_Setup_Owner_Id__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this if the object has a SetupOwnerId field (for Custom Settings)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this if the object has a SetupOwnerId field (for Custom Settings)</inlineHelpText>
+        <label>Has Setup Owner Id</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Label_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name visible on VEM picklist when choosing this object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name visible on VEM picklist when choosing this object</inlineHelpText>
+        <label>Label Name</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Needs_profiles__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this if the data is going to need a map of profile id&apos;s to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this if the data is going to need a map of profile id&apos;s to (for My Account Views)</inlineHelpText>
+        <label>Needs profiles</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Table_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API object name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>API object name, case sensitive</inlineHelpText>
+        <label>Object Name</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>VEM Data Setup</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Table_Name__c</columns>
+        <columns>Label_Name__c</columns>
+        <columns>External_Id__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>DATA{00}</displayFormat>
+        <label>Data Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>VEM Data Setup</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Table_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Label_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>External_Id__c</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Table_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Label_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>External_Id__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

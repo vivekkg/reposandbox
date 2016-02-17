@@ -1,0 +1,25 @@
+<apex:page standardcontroller="VEM__Environment__c" extensions="VEM.VEM_ENVIRONMENT" recordsetvar="environments">
+<apex:form >
+<apex:pageBlock title="Current Environment List and Migration Path">
+    <apex:pageBlockButtons location="top">
+        <apex:commandButton action="{!create}" value="New Environment" id="theButton"/>
+    </apex:pageBlockButtons>
+    <apex:panelgroup id="theTable">
+        <apex:pageblocktable value="{!environments}" var="e" border="1" cellspacing="2" cellpadding="2" rowClasses="odd,even">
+            <apex:column headerValue="Environment Name" >
+                <apex:outputLink value="../{!e.Id}">{!e.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!e.VEM__parent_org__c}" />
+            <apex:column value="{!e.VEM__Notes__c}" />
+            <apex:column value="{!e.VEM__Type__c}" />
+            <apex:column value="{!e.VEM__Status__c}" />
+            <apex:column value="{!e.VEM__SFDC_Org_ID__c}" />
+            <apex:column value="{!e.VEM__Source__c}" />
+            <apex:column value="{!e.VEM__Destination__c}" />
+            <apex:column value="{!e.VEM__User_Name_Ending__c}" />
+            <apex:column value="{!e.VEM__VAdmin__c}" />
+        </apex:pageblocktable>
+    </apex:panelgroup>
+</apex:pageBlock>
+</apex:form>
+</apex:page>
